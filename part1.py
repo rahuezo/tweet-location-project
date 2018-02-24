@@ -15,7 +15,7 @@ users_tbname = main_db.create_table(USERS_TBNAME, USERS_COLUMNS)
 
 # Get all tweet files 
 
-all_tweet_files = get_tweet_files()[:10]
+all_tweet_files = get_tweet_files()
 
 # Insert users into users table
 
