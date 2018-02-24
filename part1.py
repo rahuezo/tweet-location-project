@@ -21,7 +21,10 @@ all_tweet_files = get_tweet_files()
 
 start = time.time()
 
-for tweet_file in all_tweet_files:    
+for i, tweet_file in enumerate(all_tweet_files):
+    if i % 100 == 0: 
+        print '{} out of {} - {}'.format(i + 1, len(all_tweet_files), round(time.time() - start, 2))
+
     main_db.cursor.execute('BEGIN') 
 
     for user in get_users_from_file(tweet_file):
