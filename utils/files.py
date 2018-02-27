@@ -15,10 +15,13 @@ def get_tweet_files():
 def get_tweets_from_file(f, sep='<SEP>'): 
     with open(f, 'rb') as in_file: 
         for line in in_file: 
-            tweets = line.split(sep)
-            tweets[-2] = format_date(tweets[-2])
-            tweets[-1] = tweets[-1].strip()
-            yield tweets
+            try: 
+                tweets = line.split(sep)
+                tweets[-2] = format_date(tweets[-2])
+                tweets[-1] = tweets[-1].strip()
+                yield tweets
+            except Exception: 
+                continue
 
 
 def get_users_from_file(f, sep='<SEP>', index=0): 
