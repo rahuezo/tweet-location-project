@@ -31,5 +31,8 @@ for i, tweet_file in enumerate(all_tweet_files):
     main_db.insert('INSERT INTO {tb_name} VALUES (?, ?, ?, ?, ?)'.format(tb_name=tweets_tbname), tweets, many=True)
 
     main_db.connection.commit()
+
+    if i > 10: 
+        break 
  
 print "Elapsed Time: {0}s".format(round(time.time() - start, 2))

@@ -16,7 +16,9 @@ USERS_TBNAME = 'users'
 USERS_COLUMNS = 'user_id INT PRIMARY KEY, UNIQUE(user_id)'
 
 TWEETS_TBNAME = 'tweets'
-TWEETS_COLUMNS = 'user_id INT, tweet_text TEXT, tweet_location TEXT, tweet_date TEXT, county_fips INT'
+TWEETS_COLUMNS = """user_id INT, tweet_text TEXT, tweet_location TEXT,
+                    tweet_date TEXT, county_fips INT,
+                    FOREIGN KEY(user_id) REFERENCES {users_tbn}(user_id)""".format(users_tbn=USERS_TBNAME)
 
     
     
